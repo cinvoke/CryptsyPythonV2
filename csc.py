@@ -7,7 +7,7 @@ def getcoins(sc):
 	import time
 	import sys
 	
-	from config import pub,priv,targetcoin,targetcoinlabel,mytime,targetamount
+	from config import pub,priv,targetcoin,targetcoinlabel,mytime,targetamount,targetprice
 	coin_currency_id=0
 	print "keys..."
 	c = Cryptsy(pub, priv)
@@ -32,7 +32,7 @@ def getcoins(sc):
 	#if price >= 3.0e-5:
 	#	sys.exit("Price too high!")
 	
-	if price <= 2.2e-5:
+	if price <= targetprice:
 		marketid=str(c.currency_markets(coin_currency_id)['data']['markets'][0]['id'])
 		print "Marketid: %s" % marketid		
 		c.order_create(marketid,targetamount,'buy',price)
