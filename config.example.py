@@ -1,0 +1,6 @@
+pub = 'Your Pub Key'
+priv = 'You Priv Key'
+targetcoin = 'ExampleCoin'
+targetcoinlabel = 'XXX/BTC'
+mytime = '1800'
+targetamount = '1000'
