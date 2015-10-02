@@ -23,14 +23,14 @@ def getcoins(sc):
 	price=c.currency_markets(52)['data']['markets'][0]['last_trade']['price'] *.0025 + c.currency_markets(52)['data']['markets'][0]['last_trade']['price']
 	print "Price: %s." % price
 	
-	if price >= 3.0e-5:
-		sys.exit("Price too high!")
+	#if price >= 3.0e-5:
+	#	sys.exit("Price too high!")
 	
-	marketid=str(c.currency_markets(52)['data']['markets'][0]['id'])
-	print "Marketid: %s" % marketid
-	
-	c.order_create(marketid,1000,'buy',price)
-	sc.enter(60, 1, getcoins, (sc,))
+	if price <= 2.2e-5:
+		marketid=str(c.currency_markets(52)['data']['markets'][0]['id'])
+		print "Marketid: %s" % marketid		
+		c.order_create(marketid,1000,'buy',price)
+		sc.enter(1800, 1, getcoins, (sc,))
 
 s.enter(1, 1, getcoins, (s,))
 s.run()
