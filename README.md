@@ -43,3 +43,13 @@ c = Cryptsy("", "")
 quote = c.convert_create(3, 132, sendingamount=1, tradekey="", feepercent=2)
 pprint(quote)
 ```
+
+rename config.example.py to config.py
+
+example .gitignore:
+*.swp
+*.pyc
+*~
+config.py
+temp_temp
+
